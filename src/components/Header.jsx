@@ -14,31 +14,31 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="flex justify-between items-center px-4 pt-2 pb-1 h-auto shrink-0 relative z-20">
+        <header className="flex justify-between items-center w-full h-[14vh] max-h-[140px] min-h-[80px] px-[2vmin] shrink-0 relative z-20 bg-transparent pt-[var(--safe-top)]">
             {/* Logo & Slogan */}
-            <div className="flex items-center gap-6 py-2">
-                <div className="relative group flex items-center p-2">
-                    <img src="/assets/design/logo_full.png" alt="Logo" className="h-32 md:h-48 w-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-300 relative z-10" />
+            <div className="flex items-center gap-[2vmin] h-full py-1">
+                <div className="relative group flex items-center h-full">
+                    <img src="/assets/design/logo_full.png" alt="Logo" className="h-[85%] w-auto object-contain drop-shadow-xl relative z-10" />
                 </div>
-                <img src="/assets/design/slogan.png" alt="Slogan" className="h-16 md:h-24 w-auto object-contain mt-2 drop-shadow-md animate-float" />
+                <img src="/assets/design/slogan.png" alt="Slogan" className="h-[40%] w-auto object-contain drop-shadow-md animate-float" />
             </div>
 
             {/* Right Side: Date/Clock & Weather */}
-            <div className="flex flex-col items-end gap-2">
+            <div className="flex flex-col items-end justify-center h-full">
                 {/* Date & Time Pill */}
-                <div className="flex flex-col items-end">
-                    <div className="text-[#023047] font-bold text-xl uppercase tracking-wider">
+                <div className="flex flex-col items-end justify-center">
+                    <div className="text-[#023047] font-bold text-[2.5vmin] uppercase tracking-wider leading-tight">
                         {format(time, 'd MMMM yyyy', { locale: tr })}
                     </div>
-                    <div className="text-[#023047] font-bold text-xl uppercase tracking-wider mb-1">
+                    <div className="text-[#023047] font-bold text-[2vmin] uppercase tracking-wider mb-[0.5vmin] opacity-80">
                         {format(time, 'EEEE', { locale: tr })}
                     </div>
 
-                    <div className="bg-[#8ECAE6] flex items-center gap-2 px-4 py-1 rounded-2xl shadow-md border-2 border-white/50">
-                        <div className="bg-white/50 p-1 rounded-lg">
-                            <School size={20} className="text-[#023047]" />
+                    <div className="bg-[#8ECAE6] flex items-center gap-[1vmin] px-[2vmin] py-[0.5vmin] rounded-2xl shadow-md border-2 border-white/50">
+                        <div className="bg-white/50 p-[0.5vmin] rounded-lg">
+                            <School size={24} className="w-[3vmin] h-[3vmin] text-[#023047]" />
                         </div>
-                        <span className="text-4xl font-bold text-white tracking-widest font-mono drop-shadow-sm">
+                        <span className="text-[4vmin] font-bold text-white tracking-widest font-mono drop-shadow-sm leading-none">
                             {format(time, 'HH:mm:ss')}
                         </span>
                     </div>

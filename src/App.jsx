@@ -43,14 +43,21 @@ const BoardView = () => {
   return (
     <Layout>
       <Header />
-      <main className="flex-1 grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 overflow-hidden min-h-0 p-4 md:p-6 lg:p-8 pb-12 box-border max-h-screen">
-        {/* Center Panel - Video/Media - Now wider */}
-        <div className="col-span-8 h-full">
+      {/* 
+        SMART TV LAYOUT ENGINE:
+        - flex-1: Takes all remaining height
+        - p-[2vmin]: Scales padding relative to viewport size (keeps aspect ratio)
+        - gap-[2vmin]: Scales gap relative to viewport
+        - max-h-full: Prevents overflow
+      */}
+      <main className="flex-1 w-full min-h-0 grid grid-cols-12 gap-[2vmin] p-[2vmin] pr-[calc(2vmin+var(--safe-right))] pl-[calc(2vmin+var(--safe-left))] pb-[calc(1rem+var(--safe-bottom))] box-border overflow-hidden">
+        {/* Center Panel */}
+        <div className="col-span-8 h-full min-h-0 bg-transparent">
           <CenterPanel />
         </div>
 
-        {/* Right Panel - Info Widgets */}
-        <div className="col-span-4 h-full">
+        {/* Right Panel */}
+        <div className="col-span-4 h-full min-h-0 bg-transparent">
           <RightPanel />
         </div>
       </main>

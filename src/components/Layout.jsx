@@ -3,7 +3,7 @@ import React from 'react';
 const Layout = ({ children }) => {
     return (
         <div
-            className="fixed inset-0 w-full h-full flex flex-col overflow-hidden font-sans box-border"
+            className="w-full h-full flex flex-col overflow-hidden font-sans box-border relative"
             style={{
                 backgroundImage: 'url(/assets/design/bg.png)',
                 backgroundSize: 'cover',
