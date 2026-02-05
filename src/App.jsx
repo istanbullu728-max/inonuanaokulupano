@@ -43,7 +43,7 @@ const BoardView = () => {
   return (
     <Layout>
       <Header />
-      <main className="flex-1 grid grid-cols-12 gap-6 overflow-hidden min-h-0 px-4 pt-2 pb-12">
+      <main className="flex-1 grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 overflow-hidden min-h-0 p-4 md:p-6 lg:p-8 pb-12 box-border max-h-screen">
         {/* Center Panel - Video/Media - Now wider */}
         <div className="col-span-8 h-full">
           <CenterPanel />
