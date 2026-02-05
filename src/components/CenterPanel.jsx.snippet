@@ -1,0 +1,53 @@
+const SlideShow = ({ media }) => {
+    const [index, setIndex] = React.useState(0);
+    // Key state to force re-animation on slide change
+    const [animKey, setAnimKey] = React.useState(0);
+
+    React.useEffect(() => {
+        if (media.type !== 'slide' || !media.slides || media.slides.length === 0) return;
+
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % media.slides.length);
+            setAnimKey(prev => prev + 1);
+        }, (media.slideDuration || 5) * 1000);
+
+        return () => clearInterval(interval);
+    }, [media.type, media.slides, media.slideDuration]);
+
+    const currentImage = media.type === 'image' ? media.url : (media.slides && media.slides.length > 0 ? media.slides[index] : null);
+    const transition = media.slideTransition || 'fade';
+
+    if (!currentImage) return <div className="text-white/50">Görsel Yok</div>;
+
+    let animClass = "animate-fade-in"; // Default fade
+    let imgStyle = {};
+
+    switch (transition) {
+        case 'slide':
+            animClass = "animate-slide-in-right";
+            break;
+        case 'zoom':
+            animClass = "animate-ken-burns";
+            break;
+        case 'blur':
+            animClass = "animate-blur-in";
+            break;
+        case 'fade':
+        default:
+            animClass = "animate-fade-in";
+            break;
+    }
+
+    return (
+        <div className="w-full h-full relative overflow-hidden bg-black">
+             {/* We use a key on the image to force React to unmount/remount and trigger animation */}
+            <img
+                key={`${currentImage}-${animKey}`} 
+                src={currentImage}
+                alt={media.title}
+                className={`w-full h-full object-contain pointer-events-none ${animClass}`}
+                style={imgStyle}
+            />
+        </div>
+    );
+};

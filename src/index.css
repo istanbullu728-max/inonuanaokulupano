@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Kindergarten Theme Colors */
+  --kg-blue: #023047;
+  --kg-teal: #2EC4B6;
+  --kg-yellow: #FFB703;
+  --kg-orange: #FB8500;
+  --kg-pink: #EF476F;
+  --kg-light-blue: #8ECAE6;
+
+  --font-main: 'Fredoka', 'Quicksand', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #f0f9ff;
+  color: #023047;
+  overflow: hidden;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glass-card {
+  @apply bg-white/40 backdrop-blur-md border border-white/60 shadow-xl rounded-3xl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kg-light-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kg-blue);
+}
+
+.clip-path-slant {
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1.0);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    filter: blur(20px);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-ken-burns {
+  animation: kenBurns 10s ease-out forwards;
+}
+
+.animate-blur-in {
+  animation: blurIn 1.5s ease-out;
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(50px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift 20s ease-in-out infinite;
+}
+
+.animate-cloud-drift-slow {
+  animation: cloudDrift 30s ease-in-out infinite reverse;
+}
