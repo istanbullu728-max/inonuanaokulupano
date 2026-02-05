@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, Link } from 'react-router-dom';
 import { LayoutDashboard, Megaphone, Users, Utensils, MonitorPlay, AlertTriangle, Settings, LogOut, User } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -104,7 +104,12 @@ const AdminLayout = () => {
                         </div>
                     </div>
 
-                    <a href="/" target="_blank" className="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-[#6366F1] hover:text-white transition-all text-sm font-semibold border border-slate-200 hover:border-[#6366F1] shadow-sm hover:shadow-md group">
+                    <a
+                        href="/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-[#6366F1] hover:text-white transition-all text-sm font-semibold border border-slate-200 hover:border-[#6366F1] shadow-sm hover:shadow-md group"
+                    >
                         <MonitorPlay size={16} className="text-slate-400 group-hover:text-white transition-colors" />
                         Panoyu Görüntüle
                     </a>

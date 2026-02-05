@@ -69,11 +69,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
 
-              <Route path="/" element={
-                <RequireAuth>
-                  <BoardView />
-                </RequireAuth>
-              } />
+              <Route path="/" element={<BoardView />} />
 
               <Route path="/admin" element={
                 <RequireAuth>
