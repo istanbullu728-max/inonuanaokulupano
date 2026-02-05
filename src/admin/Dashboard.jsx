@@ -14,11 +14,11 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Genel Bakış</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Genel Bakış</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
                 {stats.map((stat, i) => (
-                    <div key={i} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+                    <div key={i} className="bg-white p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
                         <div className={`p-3 rounded-lg ${stat.bg} ${stat.color}`}>
                             <stat.icon size={24} />
                         </div>
@@ -30,7 +30,7 @@ const Dashboard = () => {
                 ))}
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <div className="bg-white p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm">
                 <h3 className="text-lg font-bold mb-4 text-gray-800">Sistem Durumu</h3>
                 <div className="space-y-4">
                     <div className="flex justify-between items-center py-3 border-b border-gray-50 last:border-0">
@@ -39,7 +39,7 @@ const Dashboard = () => {
                     </div>
                     <div className="flex justify-between items-center py-3 border-b border-gray-50 last:border-0">
                         <span className="text-gray-600">Okul Adı</span>
-                        <span className="font-medium">{data.schoolName}</span>
+                        <span className="font-medium text-right">{data.schoolName}</span>
                     </div>
                     <div className="flex justify-between items-center py-3 border-b border-gray-50 last:border-0">
                         <span className="text-gray-600">Medya Türü</span>

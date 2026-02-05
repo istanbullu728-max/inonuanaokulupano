@@ -47,15 +47,15 @@ const AnnouncementsManager = () => {
     };
 
     return (
-        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl max-w-3xl">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800 tracking-tight flex items-center gap-3">
+        <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-xl max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-800 tracking-tight flex items-center gap-3">
                 <div className="bg-indigo-100 p-2 rounded-lg text-indigo-600">
-                    <PlusCircle size={24} />
+                    <PlusCircle size={20} className="md:w-6 md:h-6" />
                 </div>
                 Duyuru Yönetimi
             </h2>
 
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mb-8">
+            <div className="bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100 mb-8">
                 <form onSubmit={handleAdd} className="space-y-6">
                     <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Duyuru Metni</label>
@@ -110,7 +110,7 @@ const AnnouncementsManager = () => {
                     </div>
 
                     <div className="pt-2">
-                        <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-200 transform hover:-translate-y-1">
+                        <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 md:py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-200 transform active:scale-95 md:hover:-translate-y-1">
                             <PlusCircle size={20} /> Listeye Ekle
                         </button>
                     </div>
@@ -134,12 +134,12 @@ const AnnouncementsManager = () => {
                             <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm shrink-0 border border-indigo-100">
                                 {index + 1}
                             </div>
-                            <p className="flex-1 text-lg" style={{ color: style.color || '#334155', fontFamily: style.fontFamily || 'Outfit' }}>
+                            <p className="flex-1 text-base md:text-lg break-words" style={{ color: style.color || '#334155', fontFamily: style.fontFamily || 'Outfit' }}>
                                 {text}
                             </p>
                             <button
                                 onClick={() => handleRemove(index)}
-                                className="text-gray-300 hover:text-red-500 w-10 h-10 flex items-center justify-center rounded-full hover:bg-red-50 transition-all opacity-0 group-hover:opacity-100"
+                                className="text-gray-400 md:text-gray-300 hover:text-red-500 w-10 h-10 flex items-center justify-center rounded-full active:bg-red-50 md:hover:bg-red-50 transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
                             >
                                 <Trash2 size={20} />
                             </button>

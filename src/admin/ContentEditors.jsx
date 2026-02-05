@@ -22,17 +22,17 @@ const TeachersManager = () => {
     };
 
     return (
-        <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm h-full flex flex-col gap-8">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-100 shadow-sm h-full flex flex-col gap-6 md:gap-8">
             {/* 1. SELECTION SECTION */}
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+            <div className="bg-slate-50 p-4 md:p-6 rounded-2xl border border-slate-100">
+                <h3 className="text-base md:text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
                     <User size={20} className="text-[#6366F1]" /> Nöbetçi Seçimi
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wide">Sabah Nöbetçisi</label>
                         <select
-                            className="w-full border border-slate-200 px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-[#6366F1] bg-white text-slate-700 font-medium"
+                            className="w-full border border-slate-200 px-4 py-3 md:py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-[#6366F1] bg-white text-slate-700 font-medium"
                             value={data.dutyTeachers?.morning || ''}
                             onChange={(e) => updateDuty('morning', e.target.value)}
                         >
@@ -45,7 +45,7 @@ const TeachersManager = () => {
                     <div>
                         <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wide">Öğle Nöbetçisi</label>
                         <select
-                            className="w-full border border-slate-200 px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-[#6366F1] bg-white text-slate-700 font-medium"
+                            className="w-full border border-slate-200 px-4 py-3 md:py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-[#6366F1] bg-white text-slate-700 font-medium"
                             value={data.dutyTeachers?.afternoon || ''}
                             onChange={(e) => updateDuty('afternoon', e.target.value)}
                         >
@@ -128,8 +128,8 @@ const MenuManager = () => {
     };
 
     return (
-        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm h-full flex flex-col">
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-slate-800">
+        <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-sm h-full flex flex-col">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3 text-slate-800">
                 <Utensils size={24} className="text-orange-600" /> Yemek Listesi
             </h3>
 
@@ -137,7 +137,7 @@ const MenuManager = () => {
                 <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Kahvaltı Menüsü</label>
                     <textarea
-                        className="w-full border border-slate-200 px-5 py-4 rounded-2xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none text-slate-700 min-h-[120px] resize-none font-medium text-lg leading-relaxed bg-slate-50 focus:bg-white transition-colors"
+                        className="w-full border border-slate-200 px-5 py-4 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none text-slate-700 min-h-[120px] resize-none font-medium text-base md:text-lg leading-relaxed bg-slate-50 focus:bg-white transition-colors"
                         placeholder="Örn: Haşlanmış Yumurta - Zeytin - Peynir..."
                         value={menu.breakfast}
                         onChange={(e) => setMenu({ ...menu, breakfast: e.target.value })}
@@ -147,7 +147,7 @@ const MenuManager = () => {
                 <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Öğle Yemeği Menüsü</label>
                     <textarea
-                        className="w-full border border-slate-200 px-5 py-4 rounded-2xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none text-slate-700 min-h-[120px] resize-none font-medium text-lg leading-relaxed bg-slate-50 focus:bg-white transition-colors"
+                        className="w-full border border-slate-200 px-5 py-4 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none text-slate-700 min-h-[120px] resize-none font-medium text-base md:text-lg leading-relaxed bg-slate-50 focus:bg-white transition-colors"
                         placeholder="Örn: Kuru Fasülye - Pilav - Ayran..."
                         value={menu.lunch}
                         onChange={(e) => setMenu({ ...menu, lunch: e.target.value })}
@@ -155,10 +155,10 @@ const MenuManager = () => {
                 </div>
             </div>
 
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 md:mt-8 flex items-center gap-4">
                 <button
                     onClick={handleSave}
-                    className="flex-1 bg-orange-600 text-white py-4 rounded-2xl font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-200 active:scale-[0.98] transform duration-100 text-lg"
+                    className="flex-1 bg-orange-600 text-white py-3.5 md:py-4 rounded-xl md:rounded-2xl font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-200 active:scale-[0.98] transform duration-100 text-base md:text-lg"
                 >
                     Kaydet
                 </button>

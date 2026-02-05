@@ -62,22 +62,22 @@ const MediaManager = () => {
     );
 
     return (
-        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl max-w-3xl">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800 tracking-tight flex items-center gap-3">
-                <Images className="text-indigo-500" />
+        <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-xl max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-800 tracking-tight flex items-center gap-3">
+                <Images className="text-indigo-500 w-6 h-6 md:w-8 md:h-8" />
                 Medya Yönetimi
             </h2>
 
             {/* Main Type Toggle */}
-            <div className="flex flex-wrap gap-3 p-1.5 bg-gray-50 rounded-2xl mb-8 w-fit border border-gray-100">
-                <TabButton type="slide" label="Slayt Gösterisi" icon={Images} />
+            <div className="flex overflow-x-auto pb-2 md:pb-0 gap-3 p-1.5 bg-gray-50 rounded-2xl mb-8 w-full md:w-fit border border-gray-100 no-scrollbar">
+                <TabButton type="slide" label="Slayt" icon={Images} />
                 <TabButton type="video" label="Video" icon={Video} />
                 <TabButton type="image" label="Resim" icon={Image} />
             </div>
 
             <div className="space-y-8">
                 {/* Content Area Based on Type */}
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                <div className="bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100">
 
                     {/* VIDEO SECTION */}
                     {data.media.type === 'video' && (
@@ -237,11 +237,11 @@ const MediaManager = () => {
                 </div>
 
                 {/* Common Title/Subtitle Inputs */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Başlık</label>
                         <input
-                            className="w-full border border-gray-300 px-4 py-2.5 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder-gray-300"
+                            className="w-full border border-gray-300 px-4 py-3 md:py-2.5 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder-gray-300 bg-white"
                             value={data.media.title || ''}
                             onChange={(e) => updateMedia('title', e.target.value)}
                             placeholder="İçerik başlığı..."
@@ -250,7 +250,7 @@ const MediaManager = () => {
                     <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Alt Başlık</label>
                         <input
-                            className="w-full border border-gray-300 px-4 py-2.5 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder-gray-300"
+                            className="w-full border border-gray-300 px-4 py-3 md:py-2.5 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder-gray-300 bg-white"
                             value={data.media.subtitle || ''}
                             onChange={(e) => updateMedia('subtitle', e.target.value)}
                             placeholder="İçerik açıklaması..."

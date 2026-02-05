@@ -15,10 +15,41 @@ const AdminLayout = () => {
         { icon: AlertTriangle, label: "Acil Mesaj", path: "/admin/urgent" },
     ];
 
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+
+    // Close sidebar on route change (mobile)
+    const handleNavClick = () => {
+        if (window.innerWidth < 768) {
+            setIsSidebarOpen(false);
+        }
+    };
+
     return (
-        <div className="flex h-screen bg-[#F8FAFC] font-sans text-slate-800">
+        <div className="flex h-screen bg-[#F8FAFC] font-sans text-slate-800 overflow-hidden">
+            {/* Mobile Menu Button - Floats on top */}
+            <button
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="md:hidden fixed top-4 right-4 z-50 p-2.5 bg-white rounded-xl shadow-lg border border-indigo-100 text-indigo-600 hover:bg-indigo-50 active:scale-95 transition-all"
+            >
+                {isSidebarOpen ? <LogOut size={24} className="rotate-180" /> : <LayoutDashboard size={24} />}
+            </button>
+
+            {/* Mobile Overlay */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-30 md:hidden"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
+
             {/* Sidebar */}
-            <aside className="w-72 bg-white border-r border-slate-200 flex flex-col shrink-0 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.05)] z-20">
+            <aside className={`
+                fixed md:static inset-y-0 left-0 z-40
+                w-72 bg-white border-r border-slate-200 flex flex-col shrink-0 
+                shadow-[4px_0_24px_-12px_rgba(0,0,0,0.05)] 
+                transition-transform duration-300 ease-in-out
+                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+            `}>
                 <div className="p-8 pb-4 flex flex-col items-center">
                     {/* Logo Fix */}
                     <img
@@ -39,6 +70,7 @@ const AdminLayout = () => {
                             key={item.path}
                             to={item.path}
                             end={item.path === "/admin"}
+                            onClick={handleNavClick}
                             className={({ isActive }) =>
                                 `flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 group relative overflow-hidden ${isActive
                                     ? 'bg-[#EEF2FF] text-[#6366F1] font-bold shadow-sm ring-1 ring-[#6366F1]/10'
@@ -80,9 +112,13 @@ const AdminLayout = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto bg-[#F8FAFC]">
-                {/* Top Bar / Header for Content could go here if needed, otherwise just padding */}
-                <div className="max-w-5xl mx-auto p-8 md:p-12">
+            <main className="flex-1 overflow-y-auto bg-[#F8FAFC] w-full relative">
+                {/* Mobile Header Spacer */}
+                <div className="md:hidden h-16 w-full flex items-center pl-6 bg-white border-b border-slate-100 mb-4 shadow-sm">
+                    <span className="font-bold text-slate-800 text-lg">Yönetim Paneli</span>
+                </div>
+
+                <div className="max-w-5xl mx-auto p-4 md:p-8 lg:p-12 pb-24 md:pb-12">
                     <Outlet />
                 </div>
             </main>
