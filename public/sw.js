@@ -1,4 +1,4 @@
-// EMERGENCY RESET: Pass-through only
+const CACHE_NAME = 'dijital-pano-v4-route-swap';
 self.addEventListener('install', (event) => {
     self.skipWaiting();
 });

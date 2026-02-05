@@ -105,7 +105,7 @@ const AdminLayout = () => {
                     </div>
 
                     <a
-                        href="/"
+                        href="/ekran"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-[#6366F1] hover:text-white transition-all text-sm font-semibold border border-slate-200 hover:border-[#6366F1] shadow-sm hover:shadow-md group"

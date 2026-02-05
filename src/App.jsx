@@ -69,7 +69,11 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
 
-              <Route path="/" element={<BoardView />} />
+              {/* Default Redirect to Login */}
+              <Route path="/" element={<Navigate to="/login" replace />} />
+
+              {/* Explicit Board Route */}
+              <Route path="/ekran" element={<BoardView />} />
 
               <Route path="/admin" element={
                 <RequireAuth>

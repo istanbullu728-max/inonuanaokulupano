@@ -16,8 +16,8 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function (registrations) {
         for (let registration of registrations) {
+          // Unregister old ones just in case
           registration.unregister();
-          console.log('SW Unregistered');
         }
       });
     }
