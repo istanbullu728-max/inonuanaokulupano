@@ -14,7 +14,6 @@ body,
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* Strict overflow prevention */
   position: fixed;
   /* Lock viewport */
 }
@@ -28,135 +27,136 @@ body,
 
   /* Kindergarten Theme Colors */
   --kg-blue: #023047;
+}
 
-  body {
-    font-family: 'Outfit', sans-serif;
-    background-color: #f0f9ff;
-    color: #023047;
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #f0f9ff;
+  color: #023047;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
 
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-
-    100% {
-      transform: translateY(0px);
-    }
+  50% {
+    transform: translateY(-10px);
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glass-card {
+  @apply bg-white/40 backdrop-blur-md border border-white/60 shadow-xl rounded-3xl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kg-light-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kg-blue);
+}
+
+.clip-path-slant {
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  .glass-card {
-    @apply bg-white/40 backdrop-blur-md border border-white/60 shadow-xl rounded-3xl;
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1.0);
   }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    filter: blur(20px);
+    opacity: 0;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--kg-light-blue);
-    border-radius: 4px;
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-ken-burns {
+  animation: kenBurns 10s ease-out forwards;
+}
+
+.animate-blur-in {
+  animation: blurIn 1.5s ease-out;
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(0px);
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--kg-blue);
+  50% {
+    transform: translateX(50px);
   }
 
-  .clip-path-slant {
-    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  100% {
+    transform: translateX(0px);
   }
+}
 
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
+.animate-cloud-drift {
+  animation: cloudDrift 20s ease-in-out infinite;
+}
 
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes kenBurns {
-    from {
-      transform: scale(1.0);
-    }
-
-    to {
-      transform: scale(1.15);
-    }
-  }
-
-  @keyframes blurIn {
-    from {
-      filter: blur(20px);
-      opacity: 0;
-    }
-
-    to {
-      filter: blur(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 1s ease-in-out;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.8s ease-out;
-  }
-
-  .animate-ken-burns {
-    animation: kenBurns 10s ease-out forwards;
-  }
-
-  .animate-blur-in {
-    animation: blurIn 1.5s ease-out;
-  }
-
-  @keyframes cloudDrift {
-    0% {
-      transform: translateX(0px);
-    }
-
-    50% {
-      transform: translateX(50px);
-    }
-
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  .animate-cloud-drift {
-    animation: cloudDrift 20s ease-in-out infinite;
-  }
-
-  .animate-cloud-drift-slow {
-    animation: cloudDrift 30s ease-in-out infinite reverse;
-  }
+.animate-cloud-drift-slow {
+  animation: cloudDrift 30s ease-in-out infinite reverse;
+}
